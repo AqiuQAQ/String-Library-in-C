@@ -277,10 +277,13 @@ void castom_add_digit_to_str(char *str, int digit);
   in = __castom_default_error
 
 #define CASTOM_GET_ERR_BY_NUMBER(in, errnum)       \
-  if (errnum >= 0 && errnum <= __castom_err_num) { \
+  if (errnum >= 0 && errnum <= __castom_err_num)   \
+  {                                                 \
     in = (char *)__castom_errors[errnum];          \
-  } else {                                         \
-    CASTOM_DEFAULT_ERROR(in, errnum);              \
-  }
+  }                                                \
+  else                                              \
+  {                                                 \
+    CASTOM_DEFAULT_ERROR(in, errnum);               \
+  }                                                  \
 
 #endif  // STRING_INCLUDE_CASTOM_STRERROR_H_
